@@ -1,0 +1,194 @@
+# Java / Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+.gradle/
+gradle-app.setting
+!gradle-app.setting
+!gradle.properties
+*.gradle
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+/idea/
+*.idea_workspace
+*.idea_folder
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders/
+
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# Logs
+logs/
+*.log
+log/
+*.log.*
+*.gz
+*.tar.gz
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Spring Boot
+application-*.properties
+application-*.yml
+application-*.yaml
+!application.yml
+!application.properties
+!application.yaml
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+.~lock.*
+*.cache
+*.pid
+*.seed
+*.pid.lock
+
+# Node.js (if any frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+package-lock.json
+
+# Python (if any AI/ML related)
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# AI / ML Models (large files)
+*.pth
+*.pt
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.pb
+*.onnx
+*.safetensors
+
+# Dataset files (optional - uncomment if you don't want to track datasets)
+# *.csv
+# *.json
+# *.parquet
+# data/
+# datasets/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Secrets
+*.pem
+*.key
+*.cert
+*.crt
+secrets/
+credentials.json
+
+# Testing
+test-output/
+*.test
+
+# Docker volumes
+docker-volumes/
+
+# Build artifacts
+build/
+dist/
+out/
+
+# Cache
+.cache/
+.cache/
+temp/
+tmp/

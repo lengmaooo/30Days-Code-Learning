@@ -9,4 +9,12 @@ public interface UserService {
     boolean save(User user);  // 新增
     boolean updateById(User user);  // 修改
     boolean removeById(Long id);  // 删除
+
+    /**
+     * 用户登录
+     * @param username 用户名
+     * @param password 密码
+     * @return token 字符串
+     */
+    String login(String username, String password);
 }

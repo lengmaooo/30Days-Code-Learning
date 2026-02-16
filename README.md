@@ -13,8 +13,8 @@
 ### 第一阶段：1～10 天｜Java 面试打底（核心考点必背）
 | 天数 | 核心学习内容 | 面试核心要求 |
 |------|--------------|--------------|
-| Day01 | Spring Boot 规范<br>• 统一返回封装 Result<T><br>• 全局异常处理<br>• 常用注解、事务 @Transactional<br>• 标准 CRUD 接口实现 | 能独立写出规范的Spring Boot接口，说清事务使用场景 |
-| Day02 | Spring Boot 登录鉴权<br>• JWT 生成、校验<br>• 登录接口开发<br>• 拦截器验证 token | 手撕JWT登录鉴权代码，讲清token校验流程 |
+| ~~Day01~~ ✅ | Spring Boot 规范<br>• 统一返回封装 Result<T><br>• 全局异常处理 @RestControllerAdvice<br>• MyBatis Plus 集成<br>• 标准 CRUD 接口实现 | 能独立写出规范的 Spring Boot 接口；讲清统一返回格式的作用；说清全局异常处理如何捕获所有异常；能使用 MyBatis Plus 进行增删改查 |
+| ~~Day02~~ ✅ | Spring Boot 登录鉴权<br>• JWT 生成、校验、解析<br>• 登录接口开发<br>• BCrypt 密码加密<br>• 拦截器验证 token | 手撕 JWT 登录鉴权代码；讲清 JWT 三部分组成（Header、Payload、Signature）；说清 token 校验流程；说清拦截器执行时机 |
 | Day03 | JUC 锁相关<br>• volatile 关键字<br>• synchronized 锁<br>• ReentrantLock 可重入锁 | 区分三种锁的使用场景和底层差异 |
 | Day04 | JUC 线程池 + 工具类<br>• ThreadPoolExecutor 7个参数（必背）<br>• ThreadLocal<br>• CountDownLatch | 背熟线程池参数含义，说清ThreadLocal使用场景和坑 |
 | Day05 | JVM 内存区域 + GC<br>• 堆、栈、方法区（元空间）<br>• Minor GC / Full GC 触发条件<br>• CMS、G1 垃圾收集器（说清核心逻辑） | 画JVM内存模型图，讲清GC回收流程 |

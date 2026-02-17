@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.learning.common.Result;
 import com.example.learning.entity.User;
 import com.example.learning.service.UserService;
+import juc.ThreadLocalDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,11 @@ public class UserController {
     @GetMapping("/page")
     public Result<Page<User>> page(@RequestParam(defaultValue = "1") Integer current,
                                     @RequestParam(defaultValue = "10") Integer size) {
+        // 新增：获取当前登录用户ID
+        Long userId = ThreadLocalDemo.getUserId();
+        System.out.println("当前登录用户ID：" + userId);
+        System.out.println("线程：" + Thread.currentThread().getName() + " 取出用户ID：" + userId);
+
         Page<User> page = userService.page(current, size);
         return Result.success(page);
     }

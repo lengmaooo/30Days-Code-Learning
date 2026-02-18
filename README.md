@@ -16,7 +16,7 @@
 | ~~Day01~~ ✅ | Spring Boot 规范<br>• 统一返回封装 Result<T><br>• 全局异常处理 @RestControllerAdvice<br>• MyBatis Plus 集成<br>• 标准 CRUD 接口实现 | 能独立写出规范的 Spring Boot 接口；讲清统一返回格式的作用；说清全局异常处理如何捕获所有异常；能使用 MyBatis Plus 进行增删改查 |
 | ~~Day02~~ ✅ | Spring Boot 登录鉴权<br>• JWT 生成、校验、解析<br>• 登录接口开发<br>• BCrypt 密码加密<br>• 拦截器验证 token | 手撕 JWT 登录鉴权代码；讲清 JWT 三部分组成（Header、Payload、Signature）；说清 token 校验流程；说清拦截器执行时机 |
 | ~~Day03~~ ✅ | JUC 锁 + 线程池<br>• volatile 关键字（可见性）<br>• synchronized 锁升级<br>• ReentrantLock 可重入锁<br>• ThreadPoolExecutor 7大参数<br>• ThreadLocal 线程隔离<br>• 集成到JWT拦截器 | 能区分三种锁的使用场景和底层差异；背熟线程池7大参数；说清ThreadLocal内存泄漏原因和解决方案；手写ThreadLocal集成JWT拦截器代码 |
-| Day04 | JUC 线程池 + 工具类<br>• ThreadPoolExecutor 7个参数（必背）<br>• ThreadLocal<br>• CountDownLatch | 背熟线程池参数含义，说清ThreadLocal使用场景和坑 |
+| ~~Day04~~ ✅ | JUC 线程池 + 工具类<br>• ThreadPoolExecutor 7个参数（必背）<br>• ThreadLocal<br>• CountDownLatch | 背熟线程池参数含义，说清ThreadLocal使用场景和坑；能手写CountDownLatch并发协调代码 |
 | Day05 | JVM 内存区域 + GC<br>• 堆、栈、方法区（元空间）<br>• Minor GC / Full GC 触发条件<br>• CMS、G1 垃圾收集器（说清核心逻辑） | 画JVM内存模型图，讲清GC回收流程 |
 | Day06 | JVM 参数 + OOM 思路<br>• Xms/Xmx 等核心参数<br>• 内存泄漏排查思路 | 说出常用JVM调优参数，讲OOM排查步骤 |
 | Day07 | MySQL 索引 + explain<br>• B+树、聚簇索引<br>• 最左前缀原则<br>• 解读explain执行计划 | 分析慢SQL，说清索引失效场景 |

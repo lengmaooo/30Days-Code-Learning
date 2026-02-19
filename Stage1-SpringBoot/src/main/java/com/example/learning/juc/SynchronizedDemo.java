@@ -1,4 +1,4 @@
-package juc;
+package com.example.learning.juc;
 
 /**
  * synchronized演示：卖票问题（解决多线程原子性）

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.learning.common.Result;
 import com.example.learning.entity.User;
 import com.example.learning.service.UserService;
-import juc.ThreadLocalDemo;
+import com.example.learning.juc.ThreadLocalDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
 package com.example.learning.common;
 
-import juc.ThreadLocalDemo;
+import com.example.learning.juc.ThreadLocalDemo;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;

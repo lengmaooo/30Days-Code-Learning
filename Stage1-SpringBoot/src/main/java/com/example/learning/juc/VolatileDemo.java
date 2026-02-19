@@ -1,4 +1,4 @@
-package juc;
+package com.example.learning.juc;
 
 /**
  * volatile演示：解决多线程下变量可见性问题

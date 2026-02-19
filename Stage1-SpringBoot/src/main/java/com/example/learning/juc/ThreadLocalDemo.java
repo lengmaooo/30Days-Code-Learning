@@ -1,4 +1,4 @@
-package juc;
+package com.example.learning.juc;
 
 /**
  * ThreadLocal演示：每个线程独立存储数据，解决线程安全问题

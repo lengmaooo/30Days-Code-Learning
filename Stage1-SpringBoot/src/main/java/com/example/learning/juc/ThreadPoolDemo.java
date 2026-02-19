@@ -1,4 +1,4 @@
-package juc;
+package com.example.learning.juc;
 
 import java.util.concurrent.*;
 

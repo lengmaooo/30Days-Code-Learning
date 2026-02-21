@@ -18,7 +18,7 @@
 | ~~Day03~~ ✅ | JUC 锁 + 线程池<br>• volatile 关键字（可见性）<br>• synchronized 锁升级<br>• ReentrantLock 可重入锁<br>• ThreadPoolExecutor 7大参数<br>• ThreadLocal 线程隔离<br>• 集成到JWT拦截器 | 能区分三种锁的使用场景和底层差异；背熟线程池7大参数；说清ThreadLocal内存泄漏原因和解决方案；手写ThreadLocal集成JWT拦截器代码 |
 | ~~Day04~~ ✅ | JUC 并发工具类<br>• CountDownLatch（倒计数门闸）<br>• CyclicBarrier（循环栅栏）<br>• Semaphore（信号量）<br>• CompletableFuture（异步编排）<br>• 线程池配置类集成 | 能区分CountDownLatch和CyclicBarrier使用场景；能手写Semaphore限流代码；掌握CompletableFuture异步编排；实战中配置线程池 |
 | ~~Day05~~ ✅ | JVM 内存区域 + OOM 实战<br>• 堆、栈、方法区（元空间）<br>• 程序计数器、本地方法栈<br>• 堆OOM、栈溢出、元空间OOM复现<br>• JVM参数配置（-Xms/-Xmx/-Xmn等）<br>• OOM排查思路与工具 | 能画JVM内存模型图；能手写代码复现堆OOM、栈溢出、元空间OOM；掌握JVM核心参数；能说清OOM排查步骤 |
-| Day06 | JVM 参数 + OOM 思路<br>• Xms/Xmx 等核心参数<br>• 内存泄漏排查思路 | 说出常用JVM调优参数，讲OOM排查步骤 |
+| ~~Day06~~ ✅ | JVM GC + 调优实战<br>• 堆内存分代模型（新生代/老年代）<br>• GC回收算法（标记清除、复制、标记整理）<br>• GC日志配置与解读<br>• 垃圾收集器对比（ParallelGC/CMS/G1GC）<br>• SpringBoot项目GC调优实战 | 能画出堆内存分代模型图；说清三大GC算法区别；能读懂GC日志；能配置不同GC器；掌握GC调优核心原则 |
 | Day07 | MySQL 索引 + explain<br>• B+树、聚簇索引<br>• 最左前缀原则<br>• 解读explain执行计划 | 分析慢SQL，说清索引失效场景 |
 | Day08 | MySQL 事务 + 锁<br>• ACID、隔离级别<br>• 脏读、幻读、不可重复读<br>• 间隙锁、行锁 | 区分四种隔离级别，说清锁的使用场景 |
 | Day09 | Redis 缓存三大问题<br>• 缓存穿透、击穿、雪崩（必背）<br>• 对应解决方案 | 背熟三大问题的成因和落地解决方案 |

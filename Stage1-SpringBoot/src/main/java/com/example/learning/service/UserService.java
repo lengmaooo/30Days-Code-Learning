@@ -1,5 +1,6 @@
 package com.example.learning.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.learning.entity.User;
 
@@ -9,6 +10,7 @@ public interface UserService {
     boolean save(User user);  // 新增
     boolean updateById(User user);  // 修改
     boolean removeById(Long id);  // 删除
+    User getOne(QueryWrapper<User> queryWrapper);  // 条件查询单个对象
 
     /**
      * 用户登录

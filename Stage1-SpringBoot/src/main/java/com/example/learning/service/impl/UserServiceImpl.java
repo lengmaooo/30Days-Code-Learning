@@ -1,5 +1,6 @@
 package com.example.learning.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.learning.common.JwtUtil;
 import com.example.learning.entity.User;
@@ -49,6 +50,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean removeById(Long id) {
         return userMapper.deleteById(id) > 0;
+    }
+
+    @Override
+    public User getOne(QueryWrapper<User> queryWrapper) {
+        return userMapper.selectOne(queryWrapper);
     }
 
     /**

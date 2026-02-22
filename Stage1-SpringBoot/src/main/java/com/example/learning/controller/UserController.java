@@ -1,5 +1,6 @@
 package com.example.learning.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.learning.common.Result;
 import com.example.learning.entity.User;
@@ -54,5 +55,14 @@ public class UserController {
     public Result<Boolean> removeById(@PathVariable Long id) {
         boolean success = userService.removeById(id);
         return Result.success(success);
+    }
+
+    @GetMapping("/slow")
+    public Result<User> slowQuery(@RequestParam String username) {
+        // 模拟低效查询（无索引时慢，有索引时快）
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("username", username);
+        User user = userService.getOne(queryWrapper);
+        return Result.success(user);
     }
 }

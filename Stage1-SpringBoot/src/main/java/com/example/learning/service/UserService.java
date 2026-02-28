@@ -19,4 +19,24 @@ public interface UserService {
      * @return token 字符串
      */
     String login(String username, String password);
+
+    /**
+     * 缓存穿透测试 - 无防护版本（每次都查DB）
+     * @param id 用户ID
+     * @return 用户对象
+     */
+    User getUserWithCache(Long id);
+
+    /**
+     * 缓存穿透测试 - 空值缓存防护版本
+     * @param id 用户ID
+     * @return 用户对象
+     */
+    User getUserWithCacheAndProtection(Long id);
+
+    /**
+     * 清空指定缓存（用于测试）
+     * @param key 缓存key
+     */
+    void clearCacheByKey(String key);
 }

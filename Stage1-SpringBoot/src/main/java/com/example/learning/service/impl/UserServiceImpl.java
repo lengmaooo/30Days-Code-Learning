@@ -3,6 +3,7 @@ package com.example.learning.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.learning.common.JwtUtil;
+import com.example.learning.common.RedisUtil;
 import com.example.learning.entity.User;
 import com.example.learning.mapper.UserMapper;
 import com.example.learning.service.UserService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -21,6 +23,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private JwtUtil jwtUtil;
+
+    @Resource
+    private RedisUtil redisUtil;
 
     // 注入自定义线程池
     @Resource(name = "userThreadPool")
@@ -92,5 +97,82 @@ public class UserServiceImpl implements UserService {
 
         // 4. 生成 token 并返回
         return jwtUtil.generateToken(user.getId());
+    }
+
+    /**
+     * 缓存穿透测试 - 无防护版本
+     * 问题：查询不存在的用户ID时，每次都会查DB，导致缓存穿透
+     */
+    @Override
+    public User getUserWithCache(Long id) {
+        String key = "user:" + id;
+
+        // 1. 查缓存
+        User user = (User) redisUtil.get(key);
+        if (user != null) {
+            System.out.println("【缓存命中】用户ID: " + id);
+            return user;
+        }
+
+        // 2. 缓存没有，查DB
+        System.out.println("【缓存未命中，查询DB】用户ID: " + id);
+        user = userMapper.selectById(id);
+
+        // 3. DB没有，直接返回（穿透！）
+        if (user == null) {
+            System.out.println("【DB查询为空，缓存穿透】用户ID: " + id);
+            return null;
+        }
+
+        // 4. DB有，写入缓存（过期时间5分钟）
+        System.out.println("【DB查询成功，写入缓存】用户ID: " + id);
+        redisUtil.set(key, user, 5, TimeUnit.MINUTES);
+        return user;
+    }
+
+    /**
+     * 缓存穿透测试 - 空值缓存防护版本
+     * 解决：DB查询为空时，写入空值缓存，避免每次都查DB
+     */
+    @Override
+    public User getUserWithCacheAndProtection(Long id) {
+        String key = "user:" + id;
+
+        // 1. 查缓存（包括空值）
+        Object cached = redisUtil.get(key);
+        if (cached != null) {
+            // 判断是否是空值
+            if (cached instanceof String && ((String) cached).isEmpty()) {
+                System.out.println("【空值缓存命中】用户ID: " + id);
+                return null;
+            }
+            System.out.println("【缓存命中】用户ID: " + id);
+            return (User) cached;
+        }
+
+        // 2. 缓存没有，查DB
+        System.out.println("【缓存未命中，查询DB】用户ID: " + id);
+        User user = userMapper.selectById(id);
+
+        // 3. DB没有，写入空值缓存（过期时间1分钟，避免缓存膨胀）
+        if (user == null) {
+            System.out.println("【DB查询为空，写入空值缓存】用户ID: " + id);
+            redisUtil.set(key, "", 1, TimeUnit.MINUTES);
+            return null;
+        }
+
+        // 4. DB有，写入缓存（过期时间5分钟）
+        System.out.println("【DB查询成功，写入缓存】用户ID: " + id);
+        redisUtil.set(key, user, 5, TimeUnit.MINUTES);
+        return user;
+    }
+
+    /**
+     * 清空指定缓存（用于测试）
+     */
+    @Override
+    public void clearCacheByKey(String key) {
+        redisUtil.delete(key);
+        System.out.println("【缓存已清空】key: " + key);
     }
 }

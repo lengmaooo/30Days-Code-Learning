@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+
+# OpenFeign 超时 + 重试配置
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 3000
+        readTimeout: 3000
+        # 重试次数（失败后重试2次，总共最多调3次）
+        maxAutoRetries: 2
+        # 下一个实例重试（多实例集群才有用）
+        maxAutoRetriesNextServer: 1
+  # 开启 Feign 重试（默认重试）
+  retryer: feign.Retryer.Default
+
+
+logging:
+  level:
+    org.springframework.web: INFO
+    com.example: DEBUG
